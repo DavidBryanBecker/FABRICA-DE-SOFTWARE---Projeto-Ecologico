@@ -1,6 +1,6 @@
 # FABRICA-DE-SOFTWARE---Projeto Ecológico.
 
-#históriia do software:
+#História do Software:
 Se trata de um projeto de nivelamento inicial para a disciplina de Fabrica de Software
 neste projeto trabalharemos com etapas na criação de um software que dará suporte para o descarte correto de 
 materiais por parte da população oferencendo conhecimento sobre a causa e canais de contato para descarte,como também 
