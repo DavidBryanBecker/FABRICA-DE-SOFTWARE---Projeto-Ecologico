@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fabrica de software</title>
+
+    <style>
+        body {
+            background-image: linear-gradient(45deg, rgb(11, 90, 21), rgb(59, 238, 14));
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            height: 100vh;
+        }
+
+        .telaLogin {
+            background-color: rgb(18, 54, 10);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            padding: 80px;
+            transform: translate(-50%, -50%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        input {
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .enviar {
+            background-color: rgb(230, 32, 180);
+            padding: 15px;
+            border-radius: 15px;
+            width: 100%;
+            color: rgb(255, 255, 255);
+        }
+
+        button:hover {
+            background-color: rgb(136, 25, 170);
+        }
+
+        .tela {
+            background-color: rgb(21, 172, 89);
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .botao-2 {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 25px;
+            background-color: white;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .cabecalho {
+            color: white;
+            text-align: center;
+        }
+
+        .rodape {
+            background-color: rgb(136, 25, 170);
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .botao-3 {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="telaLogin">
+        <h1>Login</h1>
+        <input type="text" placeholder="nome">
+        <br><br>
+        <input type="password" id="campoSenha" placeholder="Digite sua senha">
+        <br><br>
+        <button class="enviar" onclick="verificarLogin()">Entrar</button>
+    </div>
+
+    <div id="telaPontos" class="tela" style="display: none;">
+        <h2>Pontos de Coleta</h2>
+    </div>
+    <div id="telaAgendar" class="tela" style="display: none;">
+        <h2>Agendar Coleta</h2>
+    </div>
+    <div id="telaGuias" class="tela" style="display: none;">
+        <h2>Guias de descarte</h2>
+    </div>
+    <div id="telaInstituicoes" class="tela" style="display: none;">
+        <h2>Instituições</h2>
+    </div>
+    <div id="telaMapa" class="tela" style="display: none;">
+        <h2>Mapa</h2>
+    </div>
+    <div id="telaPerfil" class="tela" style="display: none;">
+        <h2>Perfil</h2>
+    </div>
+    <div id="telaNotificacao" class="tela" style="display: none;">
+        <h2>Notificações</h2>
+    </div>
+
+    <div id="telaInicio" class="tela" style="display: none;">
+
+        <div class="cabecalho">
+            <h2>PROJETO DE NIVELAMENTO</h2>
+        </div>
+
+        <img src="https://s2-g1.glbimg.com/tYxqAXyV8wddGT3u32pQfBdTcpU=/810x456/top/smart/https://i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2026/E/9/D0s1ZhRDA1yhsVTYtDBQ/figure01.gif"
+            width="100%">
+
+        <div class="area-botoes">
+            <button class="botao-2" onclick="trocarTela('telaPontos')">Pontos de coleta</button>
+            <button class="botao-2" onclick="trocarTela('telaAgendar')">Agendar Coleta</button>
+            <button class="botao-2" onclick="trocarTela('telaGuias')">Guias de descarte</button>
+            <button class="botao-2" onclick="trocarTela('telaInstituicoes')">Instituições parceiras</button>
+        </div>
+
+    </div>
+
+    <div class="rodape" id="meuRodape" style="display: none;">
+        <button class="botao-3" onclick="trocarTela('telaInicio')">🏠</button>
+        <button class="botao-3" onclick="trocarTela('telaMapa')">🗺️</button>
+        <button class="botao-3" onclick="trocarTela('telaPerfil')">👤</button>
+        <button class="botao-3" onclick="trocarTela('telaNotificacao')">📡</button>
+    </div>
+
+    <script>
+        function verificarLogin() {
+            const senhaDigitada = document.getElementById('campoSenha').value;
+            const senhaCorreta = "1234";
+
+            if (senhaDigitada === senhaCorreta) {
+                document.querySelector('.telaLogin').style.display = 'none';
+                document.getElementById('telaInicio').style.display = 'block';
+                document.getElementById('meuRodape').style.display = 'block';
+            } else {
+                alert("Senha incorreta.");
+            }
+        }
+
+        function trocarTela(telaId) {
+            const todasAsTelas = document.querySelectorAll('.tela');
+            todasAsTelas.forEach(tela => {
+                tela.style.display = 'none';
+            });
+
+            document.getElementById(telaId).style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>
